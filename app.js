@@ -7,6 +7,7 @@ const dotenv = require("dotenv").config();
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
+const enablePassport = require("./config/passport-config");
 
 const mongoDB = process.env.MONGODB_URI;
 mongoose.connect(mongoDB, { useUnifiedTopology: true, useNewUrlParser: true });
@@ -14,6 +15,8 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection error"));
 
 const app = express();
+
+enablePassport();
 
 app.use(logger("dev"));
 app.use(express.json());
