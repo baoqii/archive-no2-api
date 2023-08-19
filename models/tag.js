@@ -6,4 +6,4 @@ const TagSchema = new Schema({
   name: { type: String, required: true },
 });
 
-module.exports = mongoose.model("Tag", UserSchema);
+module.exports = mongoose.model("Tag", TagSchema);
