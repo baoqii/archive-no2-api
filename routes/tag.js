@@ -13,6 +13,8 @@ router.post(
   tagController.createTag
 );
 
+router.get("/:tag_id", tagController.getPostsWithinATag);
+
 // delete a tag
 router.delete(
   "/:tag_id",
