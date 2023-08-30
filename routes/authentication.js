@@ -10,19 +10,7 @@ router.post("/login", authenticationController.login);
 // POST signup
 router.post("/signup", authenticationController.signup);
 
-// POST logout
-router.post("/logout", authenticationController.logout);
-
-// POST verify
-router.post(
-  "/verify",
-  passport.authenticate("jwt", { session: false }),
-  authenticationController.verifyUser
-);
-
 // GET check token
 router.get("/check-token", authenticationController.checkToken);
-
-// GET API kEYS
 
 module.exports = router;
