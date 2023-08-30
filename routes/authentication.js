@@ -4,7 +4,6 @@ const passport = require("passport");
 const authenticationController = require("../controllers/authenticationController");
 
 // POST login
-// authenticate the user login using passport and JWT
 router.post("/login", authenticationController.login);
 
 // POST signup
