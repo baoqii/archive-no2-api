@@ -25,22 +25,22 @@ db.on("error", console.error.bind(console, "mongo connection error"));
 
 const app = express();
 
-// const allowedOrigins = process.env.ALLOWED_ORIGINS.split(",").map(
-//   (origin) => origin
-// );
+const allowedOrigins = process.env.ALLOWED_ORIGINS.split(",").map(
+  (origin) => origin
+);
 
-// const corsOptions = {
-//   origin: (origin, callback) => {
-//     if (allowedOrigins.indexOf(origin) !== -1) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("Not allowed by CORS"));
-//     }
-//   },
-// };
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
 
-// app.use(cors(corsOptions));
-app.use(cors());
+app.use(cors(corsOptions));
+// app.use(cors());
 app.use(compression());
 app.use(helmet());
 app.use(logger("dev"));
